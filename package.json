@@ -19,8 +19,8 @@
   "bugs": {
     "url": "https://github.com/anti-k-camino/Emailer/issues"
   },
-  "readme": "https://github.com/anti-k-camino/Emailer#readme",
-  "homepage": "https://emailer-anti-k.herokuapp.com",
+  "homepage": "https://github.com/anti-k-camino/Emailer#readme",
+  "deploy": "https://emailer-anti-k.herokuapp.com",
   "dependencies": {
     "express": "^4.16.2"
   }
