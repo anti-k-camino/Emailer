@@ -1,0 +1,22 @@
+{
+  "name": "emailer",
+  "version": "1.0.0",
+  "description": "react + express + mongo app. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anti-k-camino/Emailer.git"
+  },
+  "author": "anti-k",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anti-k-camino/Emailer/issues"
+  },
+  "homepage": "https://github.com/anti-k-camino/Emailer#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
