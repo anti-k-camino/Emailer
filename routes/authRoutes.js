@@ -13,6 +13,11 @@ module.exports = app => {
 
   app.get('/auth/github/callback', passport.authenticate('github'));
 
+  app.get('/api/logout', (req, res) => {
+    req.logout();
+    res.send(req.user || 'No longer signed in'); // to prove no longer signed in
+  });
+
   app.get('/api/current_user', (req, res) => {
     res.send(req.user);
   });
