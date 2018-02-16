@@ -35,7 +35,7 @@ passport.use(new GoogleStrategy({
 passport.use(new GitHubStrategy({
     clientID: keys.githubClientID,
     clientSecret: keys.githubClientSecret,
-    callbackURL: 'http://localhost:5000/auth/github/callback'
+    callbackURL: '/auth/github/callback'
   },
   (accessToken, refreshToken, profile, done) => {
     User.findOne({githubId: profile.id}).then(existingUser => {
