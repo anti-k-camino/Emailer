@@ -23,8 +23,10 @@
   "homepage": "https://github.com/anti-k-camino/Emailer#readme",
   "deploy": "https://emailer-anti-k.herokuapp.com",
   "dependencies": {
+    "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.2",
     "material-components-web": "^0.30.0",
+    "mongoose": "^5.0.6",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0"
   },
