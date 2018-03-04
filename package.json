@@ -9,7 +9,9 @@
   },
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -23,9 +25,9 @@
   "homepage": "https://github.com/anti-k-camino/Emailer#readme",
   "deploy": "https://emailer-anti-k.herokuapp.com",
   "dependencies": {
+    "concurrently": "^3.5.1",
     "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.2",
-    "material-components-web": "^0.30.0",
     "mongoose": "^5.0.6",
     "passport": "^0.4.0",
     "passport-github2": "^0.1.11",

@@ -16,22 +16,18 @@ passport.deserializeUser((id, done) => {
 });
 
 passport.use(new GoogleStrategy({
-  clientID: keys.googleClientID,
-  clientSecret: keys.googleClientSecret,
-  callbackURL: '/auth/google/callback',
-  proxy: true
-}, (accessToken, refreshToken, profile, done) => {
-  User.findOne({googleId: profile.id}).then(existingUser => {
-    if (existingUser) {
-      done(null, existingUser);
-    } else {
-      new User({googleId: profile.id})
-      .save()
-      .then(user => done(null, user));
-    }
-  });
-}));
-
+    clientID: keys.googleClientID,
+    clientSecret: keys.googleClientSecret,
+    callbackURL: '/auth/google/callback',
+    proxy: true
+}, async (accessToken, refreshToken, profile, done) => {
+    const existingUser = await User.findOne({googleId: profile.id});
+    if (existingUser)
+      return done(null, existingUser);
+    const newUser = await new User({googleId: profile.id}).save();
+    done(null, newUser);
+  }
+));
 
 passport.use(new GitHubStrategy({
     clientID: keys.githubClientID,
@@ -39,15 +35,11 @@ passport.use(new GitHubStrategy({
     callbackURL: '/auth/github/callback',
     proxy: true
   },
-  (accessToken, refreshToken, profile, done) => {
-    User.findOne({githubId: profile.id}).then(existingUser => {
-      if (existingUser) {
-        done(null, existingUser);
-      } else {
-        new User({githubId: profile.id})
-        .save()
-        .then(user => done(null, user));
-      }
-    });
+  async (accessToken, refreshToken, profile, done) => {
+    const existingUser = await User.findOne({githubId: profile.id});    
+    if (existingUser)
+      return done(null, existingUser);
+    const newUser = await new User({githubId: profile.id}).save();
+    done(null, newUser);    
   }
 ));
