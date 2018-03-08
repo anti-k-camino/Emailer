@@ -6,7 +6,8 @@ module.exports = app => {
     scope: ['profile', 'email']
   }));
 
-  app.get('/auth/google/callback',
+  app.get(
+   '/auth/google/callback',
    passport.authenticate('google'),
    (req, res) => { res.redirect('/surveys'); }
   );
@@ -15,14 +16,14 @@ module.exports = app => {
     scope: ['profile', 'email']
   }));
 
-  app.get('/auth/github/callback',
+  app.get(
+   '/auth/github/callback',
    passport.authenticate('github'),
    (req, res) => { res.redirect('/surveys'); }
   );
 
   app.get('/api/logout', (req, res) => {
     req.logout();
-    // res.send(req.user);
     res.redirect('/');
   });
 
